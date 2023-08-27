@@ -10,6 +10,12 @@ class SelectSurveyScreen extends StatelessWidget {
         centerTitle: false,
         title: const Text('Start Survey'),
       ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }
