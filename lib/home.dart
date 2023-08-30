@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:survey_app/select_survey_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -85,7 +87,9 @@ class HomeScreen extends StatelessWidget {
             ),
             DefaultButton(
               text: 'Start Survey',
-              press: () {},
+              press: () {
+                Get.to(() => const SelectSurveyScreen());
+              },
             )
           ],
         ),
