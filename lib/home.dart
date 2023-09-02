@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
             DefaultButton(
               text: 'Start Survey',
               press: () {
-                Get.to(() => const SelectSurveyScreen());
+                Get.to(() => SelectSurveyScreen());
               },
             )
           ],

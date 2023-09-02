@@ -1,7 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:survey_app/questionaire_screen.dart';
 
 class SelectSurveyScreen extends StatelessWidget {
-  const SelectSurveyScreen({Key? key}) : super(key: key);
+  SelectSurveyScreen({Key? key}) : super(key: key);
+
+  List surveyData = [
+    {
+      'title': 'Terminal',
+      'questionDone': 26,
+      'totalQuestion': 50,
+    },
+    {
+      'title': 'Transporter',
+      'questionDone': 6,
+      'totalQuestion': 30,
+    },
+    {
+      'title': 'Union',
+      'questionDone': 59,
+      'totalQuestion': 100,
+    },
+    {
+      'title': 'Insurance',
+      'questionDone': 20,
+      'totalQuestion': 20,
+    },
+    {
+      'title': 'Hotel',
+      'questionDone': 1,
+      'totalQuestion': 27,
+    },
+    {
+      'title': 'Rail',
+      'questionDone': 7,
+      'totalQuestion': 38,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +45,105 @@ class SelectSurveyScreen extends StatelessWidget {
         centerTitle: false,
         title: const Text('Start Survey'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
-          children: [],
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: surveyData.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Tile(
+                    press: () => Get.to(() => const QuestionnaireScreen()),
+                    surveyData: surveyData[index],
+                  ),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Tile extends StatelessWidget {
+  const Tile({super.key, this.surveyData, required this.press});
+
+  final surveyData;
+
+  final GestureTapCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: press,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      // tileColor: Colors.black12,
+      contentPadding: EdgeInsets.zero,
+      leading: Container(
+        // padding: const EdgeInsets.symmetric(
+        //   vertical: 0,
+        // ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2), // Shadow color
+              spreadRadius: 2, // Spread radius
+              blurRadius: 5, // Blur radius
+              offset: const Offset(0, 3), // Offset of the shadow
+            ),
+          ],
+        ),
+        child: Checkbox.adaptive(
+            value: surveyData['questionDone'] == surveyData['totalQuestion'],
+            onChanged: (value) {}),
+      ),
+      title: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2), // Shadow color
+              spreadRadius: 2, // Spread radius
+              blurRadius: 5, // Blur radius
+              offset: const Offset(0, 3), // Offset of the shadow
+            ),
+          ],
+        ),
+        child: Text(
+          surveyData['title'],
+          style: const TextStyle(fontSize: 17),
+        ),
+      ),
+      trailing: Container(
+        width: 60,
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2), // Shadow color
+              spreadRadius: 2, // Spread radius
+              blurRadius: 5, // Blur radius
+              offset: const Offset(0, 3), // Offset of the shadow
+            ),
+          ],
+        ),
+        child: Text(
+          '${surveyData['questionDone']} of ${surveyData['totalQuestion']}',
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontStyle: FontStyle.italic),
         ),
       ),
     );
