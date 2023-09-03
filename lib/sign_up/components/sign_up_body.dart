@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:survey_app/home.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class Body extends StatelessWidget {
@@ -177,7 +179,7 @@ class Body extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                   }
-                  // Get.to(const PhoneScreen());
+                  Get.to(HomeScreen());
                 },
               ),
               SizedBox(height: 15.h),

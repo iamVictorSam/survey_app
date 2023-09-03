@@ -32,7 +32,7 @@ class _InitScreenState extends State<InitScreen> {
         ),
         splashIconSize: 280.0,
         splashTransition: SplashTransition.scaleTransition,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         duration: 2500,
         nextScreen: const SplashScreen());
   }
