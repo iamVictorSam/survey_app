@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefaultBtn2 extends StatelessWidget {
   const DefaultBtn2({
@@ -17,16 +18,18 @@ class DefaultBtn2 extends StatelessWidget {
       height: 56,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             backgroundColor: Colors.white,
             side: const BorderSide(color: Colors.deepPurple)),
 
         onPressed: press,
         child: Text(
           text,
-          style: const TextStyle(
-            color: Colors.deepPurple,
-            fontSize: (2.5),
-          ),
+          style: TextStyle(
+              color: Colors.deepPurple,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w500),
         ),
         // borderSide: BorderSide(color: kPrimaryColor),
         // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

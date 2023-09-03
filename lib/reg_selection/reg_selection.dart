@@ -35,16 +35,14 @@ class RegSelection extends StatelessWidget {
                 fontSize: 40.sp,
               ),
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 30.h),
             DefaultButton(
               press: () {
                 Get.to(const LoginScreen());
               },
               text: 'Log in',
             ),
-            const SizedBox(
-              height: (2),
-            ),
+            SizedBox(height: 10.h),
             DefaultBtn2(
                 press: () => Get.to(
                       () => const SignUpScreen(),
