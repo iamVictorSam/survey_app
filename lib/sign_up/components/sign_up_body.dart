@@ -179,7 +179,7 @@ class Body extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                   }
-                  Get.to(HomeScreen());
+                  Get.offAll(HomeScreen());
                 },
               ),
               SizedBox(height: 15.h),
