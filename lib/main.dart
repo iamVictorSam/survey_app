@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:survey_app/intro.dart';
 import 'package:survey_app/reg_selection/reg_selection.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
 
-          title: 'First Method',
+          title: 'Survey App',
           // You can use the library anywhere in the app even in theme
           theme: ThemeData(
             useMaterial3: true,
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const RegSelection(),
+      child: const InitScreen(),
     );
   }
 }
