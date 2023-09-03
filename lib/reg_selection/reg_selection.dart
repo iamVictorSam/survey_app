@@ -13,35 +13,29 @@ class RegSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: (7)),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RichText(
-              text: TextSpan(
-                text: 'Welcome to \n',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.deepPurple,
-                  fontSize: 25.sp,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Couria',
-                    style: TextStyle(
-                      letterSpacing: 1.2,
-                      fontWeight: FontWeight.w900,
-                      color: const Color(0xFFEB2326),
-                      fontSize: 45.sp,
-                    ),
-                  ),
-                ],
+            Text(
+              'Welcome to',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.deepPurple,
+                fontSize: 20.sp,
               ),
             ),
-            const SizedBox(
-              height: (7),
+            Text(
+              'Survey App',
+              style: TextStyle(
+                letterSpacing: 1.2,
+                fontWeight: FontWeight.w900,
+                color: const Color(0xFFEB2326),
+                fontSize: 40.sp,
+              ),
             ),
+            SizedBox(height: 15.h),
             DefaultButton(
               press: () {
                 Get.to(const LoginScreen());
