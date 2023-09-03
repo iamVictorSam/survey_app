@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/questionaire_screen.dart';
 
@@ -81,69 +82,72 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: press,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-      // tileColor: Colors.black12,
-      contentPadding: EdgeInsets.zero,
-      leading: Container(
-        // padding: const EdgeInsets.symmetric(
-        //   vertical: 0,
-        // ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2), // Shadow color
-              spreadRadius: 2, // Spread radius
-              blurRadius: 5, // Blur radius
-              offset: const Offset(0, 3), // Offset of the shadow
-            ),
-          ],
+    return SizedBox(
+      height: 50,
+      child: ListTile(
+        onTap: press,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        // tileColor: Colors.black12,
+        contentPadding: EdgeInsets.zero,
+        leading: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2), // Shadow color
+                spreadRadius: 2, // Spread radius
+                blurRadius: 5, // Blur radius
+                offset: const Offset(0, 3), // Offset of the shadow
+              ),
+            ],
+          ),
+          child: Checkbox.adaptive(
+              value: surveyData['questionDone'] == surveyData['totalQuestion'],
+              onChanged: (value) {}),
         ),
-        child: Checkbox.adaptive(
-            value: surveyData['questionDone'] == surveyData['totalQuestion'],
-            onChanged: (value) {}),
-      ),
-      title: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2), // Shadow color
-              spreadRadius: 2, // Spread radius
-              blurRadius: 5, // Blur radius
-              offset: const Offset(0, 3), // Offset of the shadow
-            ),
-          ],
+        title: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2), // Shadow color
+                spreadRadius: 2, // Spread radius
+                blurRadius: 5, // Blur radius
+                offset: const Offset(0, 3), // Offset of the shadow
+              ),
+            ],
+          ),
+          child: Text(
+            surveyData['title'],
+            style: const TextStyle(fontSize: 15, color: Colors.black),
+          ),
         ),
-        child: Text(
-          surveyData['title'],
-          style: const TextStyle(fontSize: 17),
-        ),
-      ),
-      trailing: Container(
-        width: 60,
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2), // Shadow color
-              spreadRadius: 2, // Spread radius
-              blurRadius: 5, // Blur radius
-              offset: const Offset(0, 3), // Offset of the shadow
-            ),
-          ],
-        ),
-        child: Text(
-          '${surveyData['questionDone']} of ${surveyData['totalQuestion']}',
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontStyle: FontStyle.italic),
+        trailing: Container(
+          width: 60,
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2), // Shadow color
+                spreadRadius: 2, // Spread radius
+                blurRadius: 5, // Blur radius
+                offset: const Offset(0, 3), // Offset of the shadow
+              ),
+            ],
+          ),
+          child: Text(
+            '${surveyData['questionDone']} of ${surveyData['totalQuestion']}',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontStyle: FontStyle.italic,
+                color: Colors.black,
+                fontSize: 9.sp),
+          ),
         ),
       ),
     );

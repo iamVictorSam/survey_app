@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class Body extends StatelessWidget {

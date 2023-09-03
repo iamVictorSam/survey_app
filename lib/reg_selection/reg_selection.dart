@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:survey_app/login/login.dart';
 import 'package:survey_app/sign_in/sign_in.dart';
 import 'package:survey_app/sign_up/sign_up.dart';
 import 'package:survey_app/widgets/def_btn.dart';
