@@ -102,7 +102,9 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Text('$_currentPage of $_totalQuestions answered'),
+            child: Text(
+              '$_currentPage of $_totalQuestions answered',
+            ),
           ),
         ],
       ),
