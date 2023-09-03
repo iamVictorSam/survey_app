@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
@@ -30,29 +31,27 @@ class Body extends StatelessWidget {
                   letterSpacing: 1.2,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
-                  fontSize: 5.5,
+                  fontSize: 35,
                 ),
               ),
-              const SizedBox(
-                height: (5.7),
-              ),
+              SizedBox(height: 35.h),
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
                         labelText: 'Name',
                         hintText: 'Jane Doe',
-                        // prefixIcon: Padding(
-                        //   padding: const EdgeInsets.all(10.0),
-                        //   child: SvgPicture.asset("assets/icon/flag.svg"),
+                        // prefixIcon: const Padding(
+                        //   padding: EdgeInsets.all(10.0),
+                        //   child: Icon(Icons.person_2_outlined),
                         // ),
                       ),
                     ),
-                    const SizedBox(
-                      height: (5),
-                    ),
+                    SizedBox(height: 15.h),
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       // TODO: work on this
@@ -75,12 +74,76 @@ class Body extends StatelessWidget {
                       //   }
                       //   return null;
                       // },
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
                         labelText: 'Email',
                         hintText: 'autupsyofjanedoe@gmail.com',
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Icon(Icons.mail_outlined),
+                      ),
+                    ),
+                    SizedBox(height: 15.h),
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      // onSaved: (newValue) => email = newValue,
+                      // onChanged: (value) {
+                      //   if (value.isNotEmpty) {
+                      //     removeError(error: kEmailNullError);
+                      //   } else if (emailValidatorRegExp.hasMatch(value)) {
+                      //     removeError(error: kInvalidEmailError);
+                      //   }
+                      //   return null;
+                      // },
+                      // validator: (value) {
+                      //   if (value.isEmpty) {
+                      //     addError(error: kEmailNullError);
+                      //     return "";
+                      //   } else if (!emailValidatorRegExp.hasMatch(value)) {
+                      //     addError(error: kInvalidEmailError);
+                      //     return "";
+                      //   }
+                      //   return null;
+                      // },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        labelText: 'Password',
+                        hintText: 'Password@1',
+                        suffixIcon: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(Icons.remove_red_eye_outlined),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15.h),
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      // onSaved: (newValue) => email = newValue,
+                      // onChanged: (value) {
+                      //   if (value.isNotEmpty) {
+                      //     removeError(error: kEmailNullError);
+                      //   } else if (emailValidatorRegExp.hasMatch(value)) {
+                      //     removeError(error: kInvalidEmailError);
+                      //   }
+                      //   return null;
+                      // },
+                      // validator: (value) {
+                      //   if (value.isEmpty) {
+                      //     addError(error: kEmailNullError);
+                      //     return "";
+                      //   } else if (!emailValidatorRegExp.hasMatch(value)) {
+                      //     addError(error: kInvalidEmailError);
+                      //     return "";
+                      //   }
+                      //   return null;
+                      // },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        labelText: 'Confirm Password',
+                        hintText: 'Password@1',
+                        suffixIcon: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(Icons.remove_red_eye_outlined),
                         ),
                         // Icon(Icons.mail_outlined, color: Colors.black),
                       ),
@@ -88,9 +151,27 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: (4),
+              SizedBox(height: 15.h),
+              RichText(
+                text: const TextSpan(
+                  text: 'By clicking sign up I agree with ',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(
+                        text: 'Terms of service and Privacy Policy',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          decoration: TextDecoration.underline,
+                          color: Colors.deepPurple,
+                        ))
+                  ],
+                ),
               ),
+              SizedBox(height: 15.h),
               DefaultButton(
                 text: 'Sign up',
                 press: () async {
@@ -100,23 +181,7 @@ class Body extends StatelessWidget {
                   // Get.to(const PhoneScreen());
                 },
               ),
-              const SizedBox(
-                height: (4),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    HorizontalLine(),
-                    Text('  OR SIGN UP WITH  ',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w600)),
-                    HorizontalLine(),
-                  ],
-                ),
-              ),
+              SizedBox(height: 15.h),
               const SizedBox(
                 height: (4),
               ),
@@ -124,25 +189,6 @@ class Body extends StatelessWidget {
               const SizedBox(
                 height: (4),
               ),
-              RichText(
-                text: const TextSpan(
-                  text: 'By clicking sign up I agree with ',
-                  style: TextStyle(
-                    fontSize: (2),
-                    color: Colors.black,
-                  ),
-                  children: [
-                    TextSpan(
-                        text: 'Terms of service and Privacy Policy',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: (2),
-                          decoration: TextDecoration.underline,
-                          color: Colors.deepPurple,
-                        ))
-                  ],
-                ),
-              )
             ],
           ),
         ),
