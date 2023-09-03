@@ -39,6 +39,15 @@ class HomeScreen extends StatelessWidget {
     },
   ];
 
+  List colors = [
+    const Color(0xff3A4E6B),
+    const Color(0xff800020),
+    const Color(0xff4B3621),
+    const Color(0xff191970),
+    const Color(0xff871F78),
+    const Color(0xff228B22),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +68,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSpacing: 15, crossAxisCount: 2, crossAxisSpacing: 10),
               itemBuilder: (context, index) {
                 return ClayContainer(
+                  color: colors[index],
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -102,9 +112,14 @@ class ClayContainer extends StatelessWidget {
   final double width;
   final double height;
   final Widget child;
+  final Color color;
 
   const ClayContainer(
-      {super.key, this.width = 120, this.height = 120, required this.child});
+      {super.key,
+      this.width = 120,
+      this.height = 120,
+      required this.child,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +127,7 @@ class ClayContainer extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: color,
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
@@ -122,10 +137,10 @@ class ClayContainer extends StatelessWidget {
             spreadRadius: 1.0,
           ),
           const BoxShadow(
-            color: Colors.white,
+            color: Colors.black,
             offset: Offset(-4.0, -4.0),
-            blurRadius: 10.0,
-            spreadRadius: 1.0,
+            blurRadius: 5.0,
+            spreadRadius: 1,
           ),
         ],
       ),
