@@ -84,8 +84,10 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         '${surveyData[index]['questionDone']} of ${surveyData[index]['totalQuestion']}',
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 14),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic),
                       ),
                     ],
                   ),
@@ -138,8 +140,8 @@ class ClayContainer extends StatelessWidget {
           ),
           const BoxShadow(
             color: Colors.black,
-            offset: Offset(-4.0, -4.0),
-            blurRadius: 5.0,
+            offset: Offset(-3.0, -3.0),
+            blurRadius: 4.0,
             spreadRadius: 1,
           ),
         ],
