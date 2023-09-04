@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                         surveyData[index]['title'],
                         style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 17,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(
