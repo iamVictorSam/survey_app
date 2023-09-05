@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:survey_app/constants.dart';
 import 'package:survey_app/select_survey_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List surveyData = [
     {
       'title': 'Terminal',
@@ -39,20 +45,46 @@ class HomeScreen extends StatelessWidget {
     },
   ];
 
-  List colors = [
-    const Color(0xff3A4E6B),
-    const Color(0xff800020),
-    const Color(0xff4B3621),
-    const Color(0xff191970),
-    const Color(0xff871F78),
-    const Color(0xff228B22),
+  List others = [
+    {
+      'title': 'Sea Port',
+      'questionDone': 1,
+      'totalQuestion': 27,
+    },
+    {
+      'title': 'Airport',
+      'questionDone': 7,
+      'totalQuestion': 38,
+    },
   ];
+
+  List colors = [
+    const Color(0xff00827f),
+    const Color(0xffb281fc),
+    const Color.fromARGB(255, 3, 3, 3),
+    const Color.fromARGB(255, 55, 55, 56),
+    const Color(0xff53446A),
+    const Color(0xff50CA94),
+
+    //#50CA94
+    //#53446A
+
+    //#b281fc
+  ];
+
+  bool seeOthers = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Survey App'),
+        leadingWidth: 80,
+        leading: Image.asset('assets/Travi Logo 2.jpg'),
+        title: const Text(
+          'Survey App',
+          style:
+              TextStyle(color: Color(0xff53446A), fontWeight: FontWeight.bold),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -61,48 +93,117 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: surveyData.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 15, crossAxisCount: 2, crossAxisSpacing: 10),
-              itemBuilder: (context, index) {
-                return ClayContainer(
-                  color: colors[index],
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        surveyData[index]['title'],
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        '${surveyData[index]['questionDone']} of ${surveyData[index]['totalQuestion']}',
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontStyle: FontStyle.italic),
-                      ),
-                    ],
+            seeOthers
+                ? SizedBox(
+                    // height: 400,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: others.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 15,
+                              crossAxisCount: 2,
+                              // mainAxisExtent: ,
+                              childAspectRatio: 1.1,
+                              crossAxisSpacing: 10),
+                      itemBuilder: (context, index) {
+                        return ClayContainer(
+                          color: colors[index],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                others[index]['title'],
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                '${others[index]['questionDone']} of ${others[index]['totalQuestion']}',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                : SizedBox(
+                    // height: 400,
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: surveyData.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 15,
+                              crossAxisCount: 2,
+                              // mainAxisExtent: ,
+                              childAspectRatio: 1.1,
+                              crossAxisSpacing: 10),
+                      itemBuilder: (context, index) {
+                        return ClayContainer(
+                          color: colors[index],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                surveyData[index]['title'],
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                '${surveyData[index]['questionDone']} of ${surveyData[index]['totalQuestion']}',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    seeOthers = !seeOthers;
+                  });
+                },
+                child: const Text(
+                  'See more',
+                  style: TextStyle(
+                      color: kPurple,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                )),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            const Spacer(),
             DefaultButton(
               text: 'Start Survey',
               press: () {
                 Get.to(() => SelectSurveyScreen());
               },
-            )
+            ),
+            const Spacer(),
+
+            // const SizedBox(
+            //   height: 10,
+            // ),
           ],
         ),
       ),
@@ -118,8 +219,8 @@ class ClayContainer extends StatelessWidget {
 
   const ClayContainer(
       {super.key,
-      this.width = 120,
-      this.height = 120,
+      this.width = 40,
+      this.height = 40,
       required this.child,
       required this.color});
 

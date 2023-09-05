@@ -19,14 +19,15 @@ class _InitScreenState extends State<InitScreen> {
           child: Center(
             // flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(80.0),
-              child: Text(
-                'Survey App',
-                style: TextStyle(
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.deepPurple),
-              ),
+              padding: const EdgeInsets.all(0.0),
+              child: Image.asset('assets/Travi Logo.jpg'),
+              // child: Text(
+              //   'Survey App',
+              //   style: TextStyle(
+              //       fontSize: 30.sp,
+              //       fontWeight: FontWeight.w700,
+              //       color: Colors.deepPurple),
+              // ),
             ),
           ),
         ),

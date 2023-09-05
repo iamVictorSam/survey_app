@@ -37,6 +37,16 @@ class SelectSurveyScreen extends StatelessWidget {
       'questionDone': 7,
       'totalQuestion': 38,
     },
+    {
+      'title': 'Sea Port',
+      'questionDone': 1,
+      'totalQuestion': 27,
+    },
+    {
+      'title': 'Airport',
+      'questionDone': 7,
+      'totalQuestion': 38,
+    },
   ];
 
   @override
@@ -48,25 +58,31 @@ class SelectSurveyScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: surveyData.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Tile(
-                    press: () => Get.to(() => const QuestionnaireScreen()),
-                    surveyData: surveyData[index],
-                  ),
-                );
-              },
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: surveyData.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 40),
+                    child: Tile(
+                      press: () => Get.to(() => const QuestionnaireScreen()),
+                      surveyData: surveyData[index],
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -122,7 +138,8 @@ class Tile extends StatelessWidget {
           ),
           child: Text(
             surveyData['title'],
-            style: const TextStyle(fontSize: 15, color: Colors.black),
+            style: const TextStyle(
+                fontSize: 15, color: Colors.black, fontWeight: FontWeight.w500),
           ),
         ),
         trailing: Container(

@@ -25,27 +25,26 @@ class _SplashScreenState extends State<SplashScreen> {
         body: AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(children: [
-            Container(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () => Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RegSelection()),
-                    (route) => false),
-                child: const Text(
-                  'Skip',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20.0,
-                  ),
+        child: Column(children: [
+          Container(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () => Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegSelection()),
+                  (route) => false),
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20.0,
                 ),
               ),
             ),
-            SizedBox(height: 20.h),
-            Container(
+          ),
+          // SizedBox(height: 20.h),
+          Expanded(
+            child: Container(
               decoration: const BoxDecoration(
                 color: Colors.white,
                 // gradient: LinearGradient(
@@ -81,13 +80,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: (8)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: _buildPageIndicator(),
                   ),
-                  const SizedBox(height: 60),
-                  // const Spacer(),
+                  // const SizedBox(height: 30),
+
+                  const Spacer(),
                   _currentPage != _numPages - 1
                       ? Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -111,11 +110,12 @@ class _SplashScreenState extends State<SplashScreen> {
                               text: 'Get Started'),
                         )
                       : Container(),
+                  const Spacer(),
                 ],
               ),
             ),
-          ]),
-        ),
+          ),
+        ]),
       ),
     ));
   }
@@ -158,7 +158,7 @@ Widget page1() {
           height: (9),
         ),
         Text(
-          'Visit Places',
+          'Digitalization Project',
           style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
@@ -168,7 +168,7 @@ Widget page1() {
           height: 10,
         ),
         const Text(
-          'Lorem Ipsum sit amat \n Ipsum sit amat does amore',
+          'We revamp the transport sector\nwith digital tools\nfor effective and efficient service delivery.',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 16, color: Colors.grey),
         )
@@ -193,7 +193,7 @@ Widget page2() {
         //   height: (11.5),
         // ),
         Text(
-          'Lorem Ipsum',
+          'Onboarding Operators',
           style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
@@ -202,10 +202,13 @@ Widget page2() {
         const SizedBox(
           height: 10,
         ),
-        const Text(
-          'Lorem Ipsum sit amat does\nsit amat does amore',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16, color: Colors.grey),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(
+            'We aim to reduce insecurities, increase safety of Commuter and Drivers as well as customer relationship module',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
         )
         // Container(decoration: BoxDecoration)
       ]);
@@ -231,7 +234,7 @@ Widget page3() {
           height: (11.5),
         ),
         Text(
-          'Lorem Ipsum ',
+          'Supporting Stakeholders',
           style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
@@ -240,10 +243,13 @@ Widget page3() {
         const SizedBox(
           height: (2.5),
         ),
-        const Text(
-          'Lorem Ipsum sit amat does\nsit amat does amore',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16, color: Colors.grey),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(
+            'We position you in the market to gain advantage and achieve return on investment in the sector.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
         )
         // Container(decoration: BoxDecoration)
       ]);
