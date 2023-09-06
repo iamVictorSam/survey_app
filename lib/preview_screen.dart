@@ -86,9 +86,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
               },
             ),
           ),
-
           const Spacer(),
-          // const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: DefaultButton(
