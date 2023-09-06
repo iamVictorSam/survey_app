@@ -131,7 +131,7 @@ class Tile extends StatelessWidget {
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
                 spreadRadius: 2,
-                blurRadius: 5, // Blur radius
+                blurRadius: 5,
                 offset: const Offset(0, 3), // Offset of the shadow
               ),
             ],
