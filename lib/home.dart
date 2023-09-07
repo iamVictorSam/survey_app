@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/constants.dart';
+import 'package:survey_app/reponsive.dart';
 import 'package:survey_app/select_survey_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
@@ -103,9 +104,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: others.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 15,
-                          crossAxisCount: size.width > 415 ? 1 : 2,
+                          crossAxisCount: Responsive.isTablet(context) ? 3 : 2,
                           // mainAxisExtent: ,
-                          childAspectRatio: size.width > 415 ? 1 : 1.1,
+                          childAspectRatio: Responsive.isTablet(context)
+                              ? 1.4
+                              : size.width > 415 && size.width < 600
+                                  ? 1.55
+                                  : 1.1,
                           crossAxisSpacing: 10),
                       itemBuilder: (context, index) {
                         return ClayContainer(
@@ -141,13 +146,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: GridView.builder(
                       shrinkWrap: true,
                       itemCount: surveyData.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 15,
-                              crossAxisCount: 2,
-                              // mainAxisExtent: ,
-                              childAspectRatio: 1.1,
-                              crossAxisSpacing: 10),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisSpacing: 15,
+                          crossAxisCount: Responsive.isTablet(context) ? 3 : 2,
+                          // mainAxisExtent: ,
+                          childAspectRatio: Responsive.isTablet(context)
+                              ? 1.2
+                              : size.width > 415 && size.width < 600
+                                  ? 1.55
+                                  : 1.1,
+                          // childAspectRatio: size.width > 415 ? 1.4 : 1.1,
+                          crossAxisSpacing: 10),
                       itemBuilder: (context, index) {
                         return ClayContainer(
                           color: colors[index],
@@ -177,6 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
+            const SizedBox(height: 10),
             TextButton(
                 onPressed: () {
                   setState(() {
