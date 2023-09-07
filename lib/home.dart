@@ -76,6 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    print(size.width);
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 80,
@@ -99,13 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: GridView.builder(
                       shrinkWrap: true,
                       itemCount: others.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 15,
-                              crossAxisCount: 2,
-                              // mainAxisExtent: ,
-                              childAspectRatio: 1.1,
-                              crossAxisSpacing: 10),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisSpacing: 15,
+                          crossAxisCount: size.width > 415 ? 1 : 2,
+                          // mainAxisExtent: ,
+                          childAspectRatio: size.width > 415 ? 1 : 1.1,
+                          crossAxisSpacing: 10),
                       itemBuilder: (context, index) {
                         return ClayContainer(
                           color: colors[index],
