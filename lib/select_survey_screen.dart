@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/questionaire_screen.dart';
+import 'package:survey_app/reponsive.dart';
+import 'package:survey_app/user_intro_screen.dart';
 
+// ignore: must_be_immutable
 class SelectSurveyScreen extends StatelessWidget {
   SelectSurveyScreen({Key? key}) : super(key: key);
 
@@ -72,7 +75,7 @@ class SelectSurveyScreen extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 40),
                     child: Tile(
-                      press: () => Get.to(() => const QuestionnaireScreen()),
+                      press: () => Get.to(() => const UserIntroScreen()),
                       surveyData: surveyData[index],
                     ),
                   );
@@ -98,6 +101,7 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SizedBox(
       height: 50,
       child: ListTile(
@@ -160,10 +164,8 @@ class Tile extends StatelessWidget {
           child: Text(
             '${surveyData['questionDone']} of ${surveyData['totalQuestion']}',
             textAlign: TextAlign.center,
-            style: TextStyle(
-                fontStyle: FontStyle.italic,
-                color: Colors.black,
-                fontSize: 9.sp),
+            style: const TextStyle(
+                fontStyle: FontStyle.italic, color: Colors.black, fontSize: 9),
           ),
         ),
       ),

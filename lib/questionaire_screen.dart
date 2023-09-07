@@ -103,8 +103,13 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              '$_currentPage of $_totalQuestions answered',
+              '${_currentPage + 1} of $_totalQuestions answered',
             ),
+          ),
+          Image.asset(
+            'assets/Travi Logo.jpg',
+            // fit: BoxFit.cover,
+            height: 60,
           ),
         ],
       ),

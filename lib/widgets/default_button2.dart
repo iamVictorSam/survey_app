@@ -26,9 +26,9 @@ class DefaultBtn2 extends StatelessWidget {
         onPressed: press,
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.deepPurple,
-              fontSize: 16.sp,
+              fontSize: 16,
               fontWeight: FontWeight.w500),
         ),
         // borderSide: BorderSide(color: kPrimaryColor),

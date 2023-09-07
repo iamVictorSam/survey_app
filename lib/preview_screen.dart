@@ -59,11 +59,16 @@ class PreviewScreen extends StatelessWidget {
             child: DefaultButton(
                 text: 'Submit',
                 press: () {
-                  Get.offAll(() => HomeScreen());
+                  Get.offAll(() => const HomeScreen());
                   Get.to(() => SelectSurveyScreen());
                 }),
           ),
           const SizedBox(height: 40),
+          Image.asset(
+            'assets/Travi Logo.jpg',
+            // fit: BoxFit.cover,
+            height: 60,
+          ),
         ],
       ),
     );

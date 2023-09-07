@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/reg_selection/reg_selection.dart';
 import 'package:survey_app/widgets/def_btn.dart';
@@ -157,10 +156,10 @@ Widget page1() {
         const SizedBox(
           height: (9),
         ),
-        Text(
+        const Text(
           'Digitalization Project',
           style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.deepPurple),
         ),
@@ -192,10 +191,10 @@ Widget page2() {
         // const SizedBox(
         //   height: (11.5),
         // ),
-        Text(
+        const Text(
           'Onboarding Operators',
           style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.deepPurple),
         ),
@@ -233,10 +232,10 @@ Widget page3() {
         const SizedBox(
           height: (11.5),
         ),
-        Text(
+        const Text(
           'Supporting Stakeholders',
           style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.deepPurple),
         ),
