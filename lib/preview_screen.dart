@@ -107,7 +107,6 @@ class _PreviewScreenState extends State<PreviewScreen> {
           const SizedBox(height: 40),
           Image.asset(
             'assets/Travi Logo.jpg',
-            // fit: BoxFit.cover,
             height: 60,
           ),
         ],
