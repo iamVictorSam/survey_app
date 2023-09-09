@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/constants.dart';
 import 'package:survey_app/questionaire_screen.dart';
+import 'package:survey_app/select_state.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class DisclaimerScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class DisclaimerScreen extends StatelessWidget {
               const Spacer(),
               DefaultButton(
                   text: 'Proceed',
-                  press: () => Get.to(() => const QuestionnaireScreen())),
+                  press: () => Get.to(() => const LocationSelector())),
               const SizedBox(
                 height: 40,
               )
