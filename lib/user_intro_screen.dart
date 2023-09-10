@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/constants.dart';
 import 'package:survey_app/disclaimer.dart';
-import 'package:survey_app/questionaire_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class UserIntroScreen extends StatelessWidget {
