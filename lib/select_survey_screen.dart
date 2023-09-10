@@ -104,7 +104,6 @@ class Tile extends StatelessWidget {
       child: ListTile(
         onTap: press,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        // tileColor: Colors.black12,
         contentPadding: EdgeInsets.zero,
         leading: Container(
           decoration: BoxDecoration(
