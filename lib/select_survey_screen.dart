@@ -114,7 +114,7 @@ class Tile extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2), // Shadow color
                 spreadRadius: 2, // Spread radius
                 blurRadius: 5, // Blur radius
-                offset: const Offset(0, 3), // Offset of the shadow
+                offset: const Offset(0, 3),
               ),
             ],
           ),
