@@ -67,16 +67,44 @@ class _PreviewScreenState extends State<PreviewScreen> {
               );
             },
           ),
+          ListTile(
+            title: const Text('Location'),
+            subtitle: FutureBuilder<Position?>(
+              future: _position,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Text('Loading location...');
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else if (!snapshot.hasData) {
+                  return const Text('Location not available');
+                } else {
+                  final position = snapshot.data!;
+                  return Text(
+                      'Lat: ${position.latitude}, Lon: ${position.longitude}');
+                }
+              },
+            ),
+          ),
+
           const Spacer(),
           // const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: DefaultButton(
-                text: 'Submit',
-                press: () {
+              text: 'Submit',
+              press: () async {
+                final position = await _position;
+                if (position == null) {
+                  print('Location data not available');
+                } else {
+                  print(
+                      'Latitude: ${position.latitude}, Longitude: ${position.longitude}');
                   Get.offAll(() => const HomeScreen());
                   Get.to(() => SelectSurveyScreen());
-                }),
+                }
+              },
+            ),
           ),
           const SizedBox(height: 40),
           Image.asset(
