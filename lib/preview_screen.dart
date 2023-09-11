@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/route_manager.dart';
+import 'package:survey_app/getLocationPosition.dart';
 import 'package:survey_app/home.dart';
 import 'package:survey_app/select_survey_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
@@ -16,9 +18,12 @@ class PreviewScreen extends StatefulWidget {
 }
 
 class _PreviewScreenState extends State<PreviewScreen> {
+  late Future<Position?> _position;
+
   @override
   void initState() {
     super.initState();
+    _position = GetLocation().determinePosition();
   }
 
   List questionsAndAnswers = [

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:survey_app/questionaire_screen.dart';
-import 'package:survey_app/reponsive.dart';
+
 import 'package:survey_app/user_intro_screen.dart';
 
 // ignore: must_be_immutable
@@ -101,7 +99,6 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SizedBox(
       height: 50,
       child: ListTile(
