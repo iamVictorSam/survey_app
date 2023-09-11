@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:survey_app/questionaire_screen.dart';
+import 'package:survey_app/state_obj.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
 class LocationSelector extends StatefulWidget {
@@ -11,48 +13,15 @@ class LocationSelector extends StatefulWidget {
 }
 
 class _LocationSelectorState extends State<LocationSelector> {
-  // Map of states and their corresponding cities
-  Map<String, String> stateAndCity = {
-    "Abia": "Umuahia",
-    "Adamawa": "Yola",
-    "AkwaIbom": "Uyo",
-    "Anambra": "Awka",
-    "Bauchi": "Bauchi",
-    "Bayelsa": "Yenagoa",
-    "Benue": "Makurdi",
-    "Borno": "Maiduguri",
-    "CrossRiver": "Calabar",
-    "Delta": "Asaba",
-    "Ebonyi": "Abakaliki",
-    "Edo": "Benin City",
-    "Ekiti": "Ado-Ekiti",
-    "Enugu": "Enugu",
-    "Gombe": "Gombe",
-    "Imo": "Owerri",
-    "Jigawa": "Dutse",
-    "Kaduna": "Kaduna",
-    "Kano": "Kano",
-    "Katsina": "Katsina",
-    "Kebbi": "Birnin Kebbi",
-    "Kogi": "Lokoja",
-    "Kwara": "Ilorin",
-    "Lagos": "Ikeja",
-    "Nasarawa": "Lafia",
-    "Niger": "Minna",
-    "Ogun": "Abeokuta",
-    "Ondo": "Akure",
-    "Osun": "Osogbo",
-    "Oyo": "Ibadan",
-    "Plateau": "Jos",
-    "Rivers": "Port Harcourt",
-    "Sokoto": "Sokoto",
-    "Taraba": "Jalingo",
-    "Yobe": "Damaturu",
-    "Zamfara": "Gusau",
-  };
+  String selectedState = "Abia";
+  String selectedCity = "Umuahia";
 
-  String selectedState = "Abia"; // Initial state selection
-  String selectedCity = "Umuahia"; // Initial city selection
+  Position? position;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,18 +67,18 @@ class _LocationSelectorState extends State<LocationSelector> {
               ),
             ),
             const SizedBox(height: 30),
-            const Text(
-              "City:",
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 10),
-            Container(
-                width: Get.width,
-                decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(8)),
-                padding: const EdgeInsets.all(20),
-                child: Text(selectedCity)),
+            // const Text(
+            //   "City:",
+            //   style: TextStyle(fontSize: 16),
+            // ),
+            // const SizedBox(height: 10),
+            // Container(
+            //     width: Get.width,
+            //     decoration: BoxDecoration(
+            //         color: Colors.grey[100],
+            //         borderRadius: BorderRadius.circular(8)),
+            //     padding: const EdgeInsets.all(20),
+            //     child: Text(selectedCity)),
             const SizedBox(height: 30),
             const Text(
               "Enter Town",
@@ -125,6 +94,7 @@ class _LocationSelectorState extends State<LocationSelector> {
                 decoration: InputDecoration(
                     // filled: true,
                     // fillColor: Colors.grey[100],
+                    hintText: 'Town',
                     contentPadding: EdgeInsets.symmetric(horizontal: 20),
                     border: InputBorder.none),
               ),

@@ -4,12 +4,22 @@ import 'package:survey_app/home.dart';
 import 'package:survey_app/select_survey_screen.dart';
 import 'package:survey_app/widgets/def_btn.dart';
 
-class PreviewScreen extends StatelessWidget {
+class PreviewScreen extends StatefulWidget {
   // final questionsAndAnswers;
 
-  PreviewScreen({
+  const PreviewScreen({
     super.key,
   });
+
+  @override
+  State<PreviewScreen> createState() => _PreviewScreenState();
+}
+
+class _PreviewScreenState extends State<PreviewScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   List questionsAndAnswers = [
     {
